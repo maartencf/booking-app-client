@@ -1,6 +1,7 @@
 import './App.css';
 import { Header } from './components/Header';
 import { FindAvailableMeetingRooms } from './components/FindMeetingRooms'
+import { Body } from './components/Body';
 //import { useState } from 'react';
 
 //const currentDate = new Date();
@@ -16,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <FindAvailableMeetingRooms />
+      <Body />
     </div>
   );
 }

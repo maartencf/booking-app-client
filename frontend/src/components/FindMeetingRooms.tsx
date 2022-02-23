@@ -11,9 +11,8 @@ type FindAvailableMeetingRoomsProps = {
 }
 
 //const availableRooms = {} as meetingRoomModel[];
-let rooms = 0;
 
-const currentDate = dayjs(new Date()).format('YYYY-MM-DDTHH:mm:ss');
+const currentDate = dayjs(new Date()).format('YYYY-MM-DDTHH:mm');
 
 export const FindAvailableMeetingRooms: React.FC<FindAvailableMeetingRoomsProps> = props => {
   const [startDate, setStartDate] = useState(currentDate);
@@ -31,6 +30,10 @@ const GetAvailableMeetingRooms = async (startDate: string, endDate: string) => {
 
 const onSubmit = (e: any) => {
   e.preventDefault();
+  setStartDate(startDate);
+  setEndDate(endDate);
+/*   setStartDate(dayjs(startDate).format('YYYY-MM-DDTHH:mm:ss.SSS'));
+  setEndDate(dayjs(endDate).format('YYYY-MM-DDTHH:mm:ss.SSS')); */
   GetAvailableMeetingRooms(startDate, endDate);
   //setStartDate(currentDate);
   //setEndDate(currentDate);
@@ -43,12 +46,14 @@ const onSubmit = (e: any) => {
       <form className='form' onSubmit={onSubmit}>
         <div className='form-control'>
           <label>Start date and time</label>
-          <input type='datetime-local' value={startDate} onChange={(e: any) => setStartDate(e.target.value)} placeholder={currentDate}/>
+          <input type='datetime-local' value={startDate} onChange={(e: any) => setStartDate(dayjs(e.target.value).format('YYYY-MM-DDTHH:mm'))} placeholder={currentDate}/>
+         {/*  <input type='datetime-local' value={startDate} onChange={(e: any) => setStartDate(dayjs(e.target.value).format('YYYY-MM-DDTHH:mm:ss.SSS'))} placeholder={currentDate}/> */}
         </div>
 
         <div className='form-control'>
           <label>End date and time</label>
-          <input type='datetime-local' value={endDate} onChange={(e: any) => setEndDate(e.target.value)} placeholder={currentDate}/>
+          <input type='datetime-local' value={endDate} onChange={(e: any) => setEndDate(dayjs(e.target.value).format('YYYY-MM-DDTHH:mm'))} placeholder={currentDate}/>
+          {/* <input type='datetime-local' value={endDate} onChange={(e: any) => setEndDate(dayjs(e.target.value).format('YYYY-MM-DDTHH:mm:ss.SSS'))} placeholder={currentDate}/> */}
         </div>
 
         <div>

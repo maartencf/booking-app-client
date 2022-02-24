@@ -6,9 +6,3 @@ export type meetingRoomModel = {
     endDateTime: Date,
   }]
 };
-
-/* export type FindAvailableMeetingRoomsProps = {
-  //startDate: Date,
-  //endDate: Date,
-  getRooms: (startDate: string, endDate: string) => void,
-} */

@@ -14,7 +14,6 @@ export const MakeReservation: React.FC<MakeReservationProps> = (props) => {
 
   const chooseRoomId = (e: any) => {
     setSelectedRoomId(e.target.value);
-    console.log(e.target.value);
   };
 
   const onSubmit = async (e: any) => {
@@ -48,7 +47,7 @@ export const MakeReservation: React.FC<MakeReservationProps> = (props) => {
             })}
           </select>
         </div>
-        <div className="form-control bla">
+        <div className="form-control">
           <input
             type="submit"
             value="Make a reservation"
